@@ -11,7 +11,6 @@ function drawJobs(jobs) {
         <p>Make: ${job.company}</p>
         <p>${job.jobTitle}</p>
         <p>$${job.hours}</p>
-        <button onclick="app.controllers.jobController.bid('${job._id}', ${job.price})">BID</button>
         <p>${job.rate}</p>
         <p>${job.description}</p>
         <button onclick="app.controllers.jobController.deletejob('${job._id}')">DELETE</button>

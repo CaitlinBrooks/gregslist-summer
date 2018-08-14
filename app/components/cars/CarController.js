@@ -10,10 +10,12 @@ function drawCars(cars) {
     <div style="outline: 1px solid black" class="col-3">
         <p>Make: ${car.make}</p>
         <p>${car.model}</p>
-        <p>${car.price}</p>
+        <p>$${car.price}</p>
+        <button onclick="app.controllers.carController.bid('${car._id}', ${car.price})">BID</button>
         <p>${car.year}</p>
         <p>${car.description}</p>
         <img src="${car.imgUrl}" alt="somethingelse">
+        <button onclick="app.controllers.carController.deleteCar('${car._id}')">DELETE</button>
     </div>
     `
   }
@@ -34,6 +36,18 @@ export default class CarController {
     let formData = e.target
     carService.addCar(formData, drawCars)
     formData.reset()
+  }
+
+  deleteCar(carId) {
+    carService.deleteCar(carId, drawCars)
+  }
+
+  bid(carId, carPrice) {
+    carPrice += 100
+    let update = {
+      price: carPrice
+    }
+    carService.bid(carId, update, drawCars)
   }
 
 }

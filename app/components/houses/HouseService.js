@@ -46,4 +46,18 @@ export default class HouseService {
         this.getHouses(draw)
       })
   }
+  deleteHouse(houseId, draw) {
+    housesApi.delete(houseId)
+      .then(res => {
+        this.getHouses(draw)
+      })
+  }
+
+  bid(houseId, update, draw) {
+    housesApi.put(houseId, update)
+      .then(res => {
+        console.log(res)
+        this.getHouses(draw)
+      })
+  }
 }

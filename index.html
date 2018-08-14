@@ -26,10 +26,13 @@
 
   <form onsubmit="app.controllers.houseController.addHouse(event)">
     <label for="houses">Houses:</label>
-    <input type="number" name="year" placeholder="Year" value="1980" required>
-    <input type="text" name="price" placeholder="Price" required>
-    <input type="text" name="color" placeholder="Color" required>
+    <input type="number" name="bedrooms" placeholder="Bedrooms" value="2" required>
+    <input type="number" name="bathrooms" placeholder="Bathrooms" required>
     <input type="url" name="imgUrl" placeholder="Image Link" required>
+    <input type="number" name="levels" placeholder="Levels" required>
+    <input type="number" name="year" placeholder="Year" required>
+    <input type="number" name="price" placeholder="Price" required>
+    <input type="text" name="description" placeholder="Description">
     <button type="submit">Add House</button>
   </form>
 
@@ -45,6 +48,7 @@
         <img src="${car.imgUrl}" alt="somethingelse">
       </div> -->
     </div>
+    <div id="houses"></div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>

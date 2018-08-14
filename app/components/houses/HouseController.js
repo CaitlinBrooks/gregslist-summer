@@ -30,7 +30,7 @@ export default class HouseController {
     houseService.getHouses(drawHouses)
   }
 
-  addCar(e) {
+  addHouse(e) {
     e.preventDefault();
     let formData = e.target
     houseService.addHouse(formData, drawHouses)

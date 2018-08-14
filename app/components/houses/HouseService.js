@@ -19,11 +19,12 @@ export default class HouseService {
   getHouses(draw) {
     housesApi.get()
       .then(res => {
-        //converts each raw car data into Car class objects
+        //converts each raw house data into Car class objects
         let houses = res.data.data.map(rawHouse => {
           return new House(rawHouse)
         })
-        //callback function to draw cars
+        //callback function to draw house
+        console.log(houses)
         draw(houses)
       })
   }

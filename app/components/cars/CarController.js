@@ -13,7 +13,7 @@ function drawCars(cars) {
         <p>${car.price}</p>
         <p>${car.year}</p>
         <p>${car.description}</p>
-        <img src="${car.imgUrl}" alt="somethingelse">
+        <img src="${car.imgUrl}" alt="imgUrl">
     </div>
     `
   }

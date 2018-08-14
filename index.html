@@ -36,6 +36,15 @@
     <button type="submit">Add House</button>
   </form>
 
+  <form onsubmit="app.controllers.jobController.addJob(event)">
+    <label for="jobs">Jobs:</label>
+    <input type="text" name="company" placeholder="Company" value="" required>
+    <input type="text" name="jobTitle" placeholder="jobTitle" value="" required>
+    <input type="number" name="hours" placeholder="Hours" value="" required>
+    <input type="number" name="rate" placeholder="Rate" value="" required>
+    <input type="text" name="description" placeholder="Description" value="" required>
+    <button type="submit">Add Job</button>
+  </form>
 
   <div class="container">
     <div id="cars" class="row">

@@ -1,21 +1,40 @@
 import HouseService from "./HouseService.js";
-//PRIVATE
-const hs = new HouseService()
 
+let houseService = new HouseService()
 
-//Public
-class HouseController {
-  constructor() {
-
+function drawHouses(houses) {
+  let template = ''
+  for (let i = 0; i < houses.length; i++) {
+    const house = houses[i];
+    template += `
+    <div style="outline: 1px solid black" class="col-3">
+        <p>Make: ${house.bedrooms}</p>
+        <p>${house.bathrooms}</p>
+        <img src="${house.imgUrl}" alt="imgUrl">
+        <p>${house.levels}</p>
+        <p>${house.year}</p>
+        <p>${house.price}</p>
+        <p>${house.description}</p>
+    </div>
+    `
   }
-  getHouse(triggeredEvent) {
-    triggeredEvent.preventDefault();
-    let formData = triggeredEvent.target
-    // HouseService.addHouse(formData)
-    // formData.reset()
-    // drawHouse()
-  }
+
+  document.getElementById('houses').innerHTML = template
+
+
 }
-console.log("hello from HouseController.js")
-// draw only on controller
-export default HouseController
+
+export default class HouseController {
+
+  constructor() {
+    houseService.getHouses(drawHouses)
+  }
+
+  addCar(e) {
+    e.preventDefault();
+    let formData = e.target
+    houseService.addHouse(formData, drawHouses)
+    formData.reset()
+  }
+
+}

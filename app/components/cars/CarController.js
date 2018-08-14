@@ -29,12 +29,11 @@ export default class CarController {
     carService.getCars(drawCars)
   }
 
-  // addCar(triggeredEvent) {
-  //   triggeredEvent.preventDefault();
-  //   let formData = triggeredEvent.target
-  //   carService.addCar(formData)
-  //   formData.reset()
-  //   drawCars()
-  // }
+  addCar(e) {
+    e.preventDefault();
+    let formData = e.target
+    carService.addCar(formData, drawCars)
+    formData.reset()
+  }
 
 }

@@ -27,17 +27,20 @@ export default class CarService {
       })
   }
 
-  // addCar(formData) {
-  //   let newCar = new Car(
-  //     formData.make.value,
-  //     formData.model.value,
-  //     formData.year.value,
-  //     formData.price.value,
-  //     formData.color.value,
-  //     formData.imgUrl.value
-  //   )
-  //   cars.push(newCar)
-  //   console.log(cars)
-
-  // }
+  addCar(formData, draw) {
+    let newCar = new Car({
+      make: formData.make.value,
+      model: formData.model.value,
+      year: formData.year.value,
+      price: formData.price.value,
+      description: formData.description.value,
+      imgUrl: formData.imgUrl.value
+    })
+    //first parameter is any addition to base url
+    //second parameter is object to pass to server
+    carsApi.post('', newCar)
+      .then(res => {
+        this.getCars(draw)
+      })
+  }
 }
